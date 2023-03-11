@@ -1,4 +1,4 @@
-# Template Repo
+# Kaonashi
 
 [![Build and Test (foxy)](../../actions/workflows/build_and_test_foxy.yaml/badge.svg?branch=rolling)](../../actions/workflows/build_and_test_foxy.yaml?query=branch:rolling)
 [![Build and Test (humble)](../../actions/workflows/build_and_test_humble.yaml/badge.svg?branch=rolling)](../../actions/workflows/build_and_test_humble.yaml?query=branch:rolling)
