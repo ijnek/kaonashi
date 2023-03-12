@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot name="kaonashi" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 -1.57" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/XL330.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <origin rpy="-1.57 0 0" xyz="0.0 0.0 0.003"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/FPX330-H101.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link2">
+    <visual>
+      <origin rpy="-1.57 0 3.14" xyz="0.0 -0.008 0.0"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/XL330.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="1.57 0 0" xyz="0.0 0.0 0.024"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/FPX330-S102.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="-1.57 0 -1.57" xyz="0.0 0.0 0.030"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/FPX330-S102.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="1.57 0 1.57" xyz="0.008 0.0 0.0545"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/XL330.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link3"/>
+
+  <joint name="base_link__link1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0065"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit effort="1" lower="-3.1415" upper="3.1415" velocity="10.0"/>
+  </joint>
+
+  <joint name="link1__link2" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0170"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <limit effort="1" lower="-3.1415" upper="3.1415" velocity="10.0"/>
+  </joint>
+
+  <joint name="link2__link3" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.055"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <limit effort="1" lower="-3.1415" upper="3.1415" velocity="10.0"/>
+  </joint>
+</robot>
