@@ -1,0 +1,48 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 -1.57" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/XL330.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <origin rpy="-1.57 0 0" xyz="0.0 0.0 0.003"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/FPX330-H101.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link2">
+    <visual>
+      <origin rpy="-1.57 0 3.14" xyz="0.0 -0.008 0.0"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/XL330.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="1.57 0 0" xyz="0.0 0.0 0.024"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/FPX330-S102.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="-1.57 0 -1.57" xyz="0.0 0.0 0.030"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/FPX330-S102.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="1.57 0 1.57" xyz="0.008 0.0 0.0545"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/XL330.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link3"/>
+</robot>

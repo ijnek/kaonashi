@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kaonashi">
+  <xacro:include filename="$(find kaonashi_description)/urdf/links.xacro"/>
+  <xacro:include filename="$(find kaonashi_description)/urdf/joints.xacro"/>
+  <xacro:include filename="control.xacro"/>
+</robot>

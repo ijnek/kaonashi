@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <ros2_control name="Kaonashi" type="system">
+    <hardware>
+      <plugin>dynamixel_hardware/DynamixelHardware</plugin>
+      <param name="usb_port">/dev/ttyUSB0</param>
+      <param name="baud_rate">57600</param>
+    </hardware>
+    <joint name="base_link__link1">
+      <param name="id">1</param>
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="link1__link2">
+      <param name="id">2</param>
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="link2__link3">
+      <param name="id">3</param>
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+</robot>
