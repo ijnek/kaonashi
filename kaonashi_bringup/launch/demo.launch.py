@@ -1,5 +1,4 @@
-# Copyright 2020 Yutaka Kondo <yutaka.kondo@youtalk.jp>
-# Copyright 2022 Kenji Brameld <kenjibrameld@gmail.com>
+# Copyright 2023 Kenji Brameld <kenjibrameld@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,14 +13,21 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+
+    # Declare launch arguments
+    bringup_params_arg = DeclareLaunchArgument(
+        name='bringup_params',
+        description='Path to the yaml file containing parameters for this launch file.',
+        default_value=PathJoinSubstitution(
+            [FindPackageShare('kaonashi_bringup'), 'configs', 'demo_params.yaml']))
 
     # Description Launch
     description_launch = IncludeLaunchDescription(
@@ -45,6 +51,15 @@ def generate_launch_description():
         )
     )
 
+    # Camera
+    usb_cam_node = Node(
+        package='usb_cam',
+        executable='usb_cam_node_exe',
+        name='usb_cam_node_exe',
+        output='screen',
+        parameters=[LaunchConfiguration('bringup_params')],
+    )
+
     # Rviz
     rviz_config_path = PathJoinSubstitution(
         [FindPackageShare('kaonashi_bringup'), 'rviz', 'demo.rviz'])
@@ -57,7 +72,9 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        bringup_params_arg,
         description_launch,
         control_launch,
+        usb_cam_node,
         rviz_node,
     ])

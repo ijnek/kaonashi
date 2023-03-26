@@ -44,5 +44,79 @@
     </visual>
   </link>
 
-  <link name="link3"/>
+  <link name="link3">
+    <visual>
+      <origin rpy="0 0 1.57" xyz="0.017 0 0"/>
+      <geometry>
+        <mesh filename="package://kaonashi_description/meshes/FPX330-S102.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0205 0 0"/>
+      <geometry>
+        <box size="0.007 0.038 0.023"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0275 0.0145 0"/>
+      <geometry>
+        <box size="0.007 0.009 0.038"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0275 -0.0145 0"/>
+      <geometry>
+        <box size="0.007 0.009 0.038"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 1.57 0" xyz="0.037 0.014 0.014"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.012"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 1.57 0" xyz="0.037 -0.014 0.014"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.012"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 1.57 0" xyz="0.037 0.014 -0.014"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.012"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 1.57 0" xyz="0.037 -0.014 -0.014"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.012"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0428 0 0"/>
+      <geometry>
+        <box size="0.0015 0.038 0.038"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0452 0 0"/>
+      <geometry>
+        <box size="0.0032 0.020 0.020"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin rpy="0 1.57 0" xyz="0.0558 0 0"/>
+      <geometry>
+        <cylinder radius="0.007" length="0.018"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="camera">
+  </link>
+
+  <link name="camera_optical">
+  </link>
+
 </robot>

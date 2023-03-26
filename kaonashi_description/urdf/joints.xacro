@@ -22,4 +22,16 @@
     <axis xyz="1.0 0.0 0.0"/>
     <limit effort="1" lower="-3.1415" upper="3.1415" velocity="10.0"/>
   </joint>
+
+  <joint name="link3__camera" type="fixed">
+    <parent link="link3"/>
+    <child link="camera"/>
+    <origin rpy="0 0 0" xyz="0.0648 0 0"/>
+  </joint>
+
+  <joint name="camera__camera_optical" type="fixed">
+    <parent link="camera"/>
+    <child link="camera_optical"/>
+    <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/>
+  </joint>
 </robot>

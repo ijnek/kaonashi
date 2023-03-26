@@ -13,6 +13,7 @@ find_package(ament_cmake REQUIRED)
 
 install(DIRECTORY
   camera_parameters
+  configs
   launch
   rviz
   DESTINATION share/${PROJECT_NAME}
