@@ -1,4 +1,10 @@
+/ipm:
+  ros__parameters:
+    output_frame: "floor"
+    type: "rgb_image"
+
 /usb_cam_node_exe:
   ros__parameters:
     camera_name: "narrow_stereo"
     camera_info_url: "package://kaonashi_bringup/camera_parameters/ost.yaml"
+    frame_id: "camera_optical"

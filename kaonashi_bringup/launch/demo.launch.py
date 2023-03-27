@@ -60,6 +60,24 @@ def generate_launch_description():
         parameters=[LaunchConfiguration('bringup_params')],
     )
 
+    # IPM Image Node
+    ipm_image_node = Node(
+        package='ipm_image_node',
+        executable='ipm',
+        name='ipm',
+        output='screen',
+        remappings=[
+            ('input', 'image_raw'),
+        ],
+        parameters=[LaunchConfiguration('bringup_params')],
+    )
+
+    # Floor to base_link transform
+    static_transform_publisher_node = Node(
+        package = "tf2_ros",
+        executable = "static_transform_publisher",
+        arguments = ["0", "0", "1.25", "0", "0", "0", "floor", "base_link"])
+
     # Rviz
     rviz_config_path = PathJoinSubstitution(
         [FindPackageShare('kaonashi_bringup'), 'rviz', 'demo.rviz'])
@@ -68,7 +86,9 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output='screen',
-        arguments=['-d', rviz_config_path],
+        arguments=[
+            '-d', rviz_config_path,
+        ],
     )
 
     return LaunchDescription([
@@ -76,5 +96,7 @@ def generate_launch_description():
         description_launch,
         control_launch,
         usb_cam_node,
+        ipm_image_node,
+        static_transform_publisher_node,
         rviz_node,
     ])
